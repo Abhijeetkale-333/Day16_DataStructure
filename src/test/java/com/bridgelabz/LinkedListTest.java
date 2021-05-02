@@ -67,6 +67,7 @@ public class LinkedListTest {
         Assert.assertTrue(result);
         linkedList.PrintMyNodes();
     }
+
     @Test
     public void given3NumberswhenDeletingFirstElementShouldPassTheLinkedList(){
         MyNode<Integer> MyFirstNode=new MyNode<>(56);
@@ -105,5 +106,22 @@ public class LinkedListTest {
         linkedList.append(MyThirdNode);
         INode<Integer> searchNode=linkedList.search(MySecondNode);
         Assert.assertEquals(MySecondNode,searchNode);
+    }
+    @Test
+    public void given4NumbersWhenInsertingInMiddleShouldPassTheLinkedList(){
+        MyNode<Integer> myFirstNode=new MyNode<>(56);
+        MyNode<Integer> mySecondNode=new MyNode<>(30);
+        MyNode<Integer> myThirdNode=new MyNode<>(40);
+        MyNode<Integer> myFourthNode=new MyNode<>(70);
+        MyLinkedList linkedList=new MyLinkedList();
+        linkedList.add(myFirstNode);
+        linkedList.append(mySecondNode);
+        linkedList.append(myFourthNode);
+        linkedList.inserInmiddle(mySecondNode,myThirdNode);
+        boolean result=linkedList.head.equals(myFirstNode)&&linkedList.head.getNext().equals(mySecondNode)&&
+                linkedList.head.getNext().getNext().equals(myThirdNode)&&
+                linkedList.tail.equals(myFourthNode);
+        Assert.assertTrue(result);
+        linkedList.PrintMyNodes();
     }
 }

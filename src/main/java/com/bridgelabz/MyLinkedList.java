@@ -53,6 +53,7 @@ public class MyLinkedList<K> {
         myNode.setNext(newNode);
         newNode.setNext(tempNode);
     }
+
     public INode pop() {
         INode tempNode=this.head;
         this.head=head.getNext();
@@ -76,6 +77,9 @@ public class MyLinkedList<K> {
             }
         }
         return null;
+    }
+    public void inserInmiddle(K key,INode newNode){
+        insert(search(key),newNode);
     }
 
 }
